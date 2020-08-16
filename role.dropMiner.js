@@ -15,7 +15,7 @@ var roleDropminer = {
                 takenContainers.push(dropMiners[i].memory.container);
                 console.log(dropMiners[i].memory.container);
             }
-            console.log(targets[0]);
+          /*  console.log(targets[1]);
                 if(!takenContainers.includes(targets[0].id)){
                   creep.memory.container = targets[0].id;
                   creep.memory.source = sources[0].id;
@@ -23,7 +23,7 @@ var roleDropminer = {
                 else if(!takenContainers.includes(targets[1].id)){
                   creep.memory.container = targets[1].id;
                   creep.memory.source = sources[1].id;
-                }
+                }*/
             var currentSource = Game.getObjectById(creep.memory.source);
             var currentTarget = Game.getObjectById(creep.memory.container);
 
