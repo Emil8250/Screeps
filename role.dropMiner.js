@@ -17,7 +17,7 @@ var roleDropminer = {
               }
               else {
                 dropMiners[i].memory.container = targets[0].id;
-                dropminers[i].memory.source = sources[0].id
+                dropMiners[i].memory.source = sources[0].id
               }
             }
           /*  console.log(targets[1]);
