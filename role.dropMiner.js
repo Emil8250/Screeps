@@ -35,7 +35,7 @@ if(creep.memory.container == "")
 }
             var currentSource = Game.getObjectById(creep.memory.currentSource);
             var currentTarget = Game.getObjectById(creep.memory.container);
-
+creep.say(creep.harvest(currentSource));
             if(creep.harvest(currentSource) == ERR_NOT_IN_RANGE || creep.pos != currentTarget.pos) {
                 creep.moveTo(currentTarget, {visualizePathStyle: {stroke: '#ffaa00'}});
             }
