@@ -8,7 +8,7 @@ var roleDropminer = {
                         return (structure.structureType == STRUCTURE_CONTAINER);
                     }
             });
-            var dropMiners = var harvesters2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'dropMiner');
+            var dropMiners = _.filter(Game.creeps, (creep) => creep.memory.role == 'dropMiner');
             for (var i = 0; i < dropMiners.length; i++) {
               console.log(dropMiners[i]);
             }
