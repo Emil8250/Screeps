@@ -8,7 +8,7 @@ var roleDropMiner = require('role.dropMiner');
 var roleUpgraderRoadBuilder = require('role.upgraderRoadBuilder');
 var buildRoadToController = require('build.roadToController');
 var roleRoadSquad = require('role.roadSquad');
-var roleSupplyTower = require('role.supplyTower');
+//var roleSupplyTower = require('role.supplyTower');
 var roleHauler = require('role.hauler');
 
 module.exports.loop = function () {
@@ -23,7 +23,7 @@ module.exports.loop = function () {
         }
     }
     var gameSpawns = Object.keys(Game.spawns);
-    
+
     for (var i = 0; i < gameSpawns.length; i++) {
        var currentSpawn = Game.spawns[gameSpawns[i]];
        var currentRoom = currentSpawn.room;
@@ -50,9 +50,9 @@ module.exports.loop = function () {
         var extensions = currentRoom.find(FIND_STRUCTURES, {filter: (structure) => {return (structure.structureType == STRUCTURE_EXTENSION)}}).length;
         var allFlags = currentRoom.find(FIND_FLAGS);
         if(allFlags.length != 0){
-        
+
         var flagPos = currentRoom.find(FIND_FLAGS)[0].pos
-        
+
         for (var i = 0; i < 20; i++) {
             if(i % 4 == 0)
                 currentRoom.createConstructionSite(flagPos.x, flagPos.y + i, STRUCTURE_EXTENSION);
@@ -64,7 +64,7 @@ module.exports.loop = function () {
                 currentRoom.createConstructionSite(flagPos.x + i, flagPos.y + i, STRUCTURE_EXTENSION);
         }
         }
-        
+
     }
     else
     {
@@ -87,11 +87,11 @@ module.exports.loop = function () {
     console.log('repairs: ' + conRepair.length);
     var roadSquad = _.filter(Game.creeps, (creep) => creep.memory.role == 'roadSquad');
     console.log('roadSquad: ' + roadSquad.length);
-    var supplyTower = _.filter(Game.creeps, (creep) => creep.memory.role == 'supplyTower');
+    /*var supplyTower = _.filter(Game.creeps, (creep) => creep.memory.role == 'supplyTower');
     console.log('supplyTower: ' + supplyTower.length);
-    var hauler =  _.filter(Game.creeps, (creep) => creep.memory.role == 'hauler');
+    */var hauler =  _.filter(Game.creeps, (creep) => creep.memory.role == 'hauler');
     console.log('Hauler: ' + hauler.length);
-    
+
     var spawnHarvester = false;
     var spawnOldHarvester = false;
     var spawnMiner = false;
@@ -101,10 +101,10 @@ module.exports.loop = function () {
                 return (structure.structureType == STRUCTURE_TOWER);
             }
     });
-    if(supplyTower.length < 1 && towers.length > 0){
+  /*  if(supplyTower.length < 1 && towers.length > 0){
         if(towers[0].energyAvailable != towers[0].energyCapacity)
-            spawnSupplyTower = true;   
-    }
+            spawnSupplyTower = true;
+    }*/
     if(harvesters2.length < 2)
         spawnHarvester = true;
     if(dropMiner.length == 2){
@@ -114,7 +114,7 @@ module.exports.loop = function () {
     }
     if(dropMiner.length < 2)
         spawnMiner = true;
-        
+
     if(Object.keys(Game.creeps).length == 0)
         spawnOldHarvester = true;
 
@@ -177,12 +177,12 @@ module.exports.loop = function () {
         currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE], newName,
             {memory: {role: 'hauler'}});
     }
-    else if(spawnSupplyTower) {
+    /*else if(spawnSupplyTower) {
         var newName = 'SupplyTower' + Game.time;
         console.log('Spawning new SupplyTower: ' + newName);
         currentSpawn.spawnCreep([WORK,CARRY,CARRY,WORK,MOVE,MOVE], newName,
-            {memory: {role: 'supplyTower'}});        
-    }
+            {memory: {role: 'supplyTower'}});
+    }*/
     else if(currentRoom.energyAvailable >= 800 && upgraders2.length < 11) {
         var newName = 'Upgrader2' + Game.time;
         console.log('Spawning new upgrader: ' + newName);
@@ -237,7 +237,7 @@ module.exports.loop = function () {
               roleRoadSquad.run(creep);
               break;
           case 'supplyTower':
-              roleSupplyTower.run(creep);
+              //roleSupplyTower.run(creep);
               break;
           case 'hauler':
             roleHauler.run(creep);
