@@ -22,7 +22,7 @@ var roleDropminer = {
             }
            console.log(targets[1]);
 
-if(dropMiners[i].memory.container == "")
+if(creep.memory.container == "")
 {
                 if(!takenContainers.includes(targets[0].id)){
                   creep.memory.container = targets[0].id;
