@@ -41,8 +41,7 @@ var roleUpgrader2 = {
             }
           }
         }
-        }
     }
-};
+}
 
 module.exports = roleUpgrader2;
