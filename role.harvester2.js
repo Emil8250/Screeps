@@ -15,10 +15,10 @@ var roleHarvester2 = {
                   }
           });
           //creep.say(sources[0].store.getUsedCapacity());
-          if(sources[0].store.getUsedCapacity() > 150)
+          if(sources[1].store.getUsedCapacity() > 150)
           {
-            if(creep.withdraw(sources[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
+            if(creep.withdraw(sources[1], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
           }
           else {
