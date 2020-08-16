@@ -11,7 +11,7 @@ var roleDropminer = {
             var dropMiners = _.filter(Game.creeps, (creep) => creep.memory.role == 'dropMiner');
             var takenContainers = [];
             for (var i = 0; i < dropMiners.length; i++) {
-              if(dropMiners[i].memory.container != "")
+              if(dropMiners[i].memory.container != ""){
                 takenContainers.push(dropMiners[i].memory.container);
                 console.log(dropMiners[i].memory.container);
               }
