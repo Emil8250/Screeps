@@ -19,10 +19,28 @@ var roleUpgrader2 = {
             }
         }
         else {
-            var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
+          var sources = creep.room.find(FIND_STRUCTURES, {
+                  filter: (structure) => {
+                      return (structure.structureType == STRUCTURE_CONTAINER);
+                  }
+          });
+          var backup = creep.room.find(FIND_STRUCTURES, {
+                  filter: (structure) => {
+                      return (structure.structureType == STRUCTURE_STORAGE);
+                  }
+          });
+          if(sources[0].store.getUsedCapacity() > 150)
+          {
+            if(creep.withdraw(sources[0]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
+          }
+          else {
+            if(creep.withdraw(backup[0]) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(backup[0], {visualizePathStyle: {stroke: '#ffaa00'}});
+            }
+          }
+        }
         }
     }
 };
