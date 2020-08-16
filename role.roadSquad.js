@@ -6,6 +6,12 @@ var roleRoadSquad = {
                         return (structure.structureType == STRUCTURE_ROAD);
                     }
         });
+        var containers = creep.room.find(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                        return (structure.structureType == STRUCTURE_CONTAINER);
+                    }
+        });
+        var currentContainer = containers[0];
         var lowRoad = _.min(targets, function(Road) { return Road.hits; });
         if(!creep.memory.road){
             creep.memory.road = lowRoad.id;
@@ -30,7 +36,7 @@ var roleRoadSquad = {
             }
             if(creep.store.getUsedCapacity() <= 0)
             {
-                 if(creep.withdraw(currentRoad, RESOURCE_ENERGY) == -9) {
+                 if(creep.withdraw(currentContainer, RESOURCE_ENERGY) == -9) {
                     creep.moveTo(currentRoad, {visualizePathStyle: {stroke: '#ffaa00'}});
                 }
             }
