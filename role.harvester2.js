@@ -4,7 +4,6 @@ var roleHarvester2 = {
     run: function(creep) {
 
 	    if(creep.store.getUsedCapacity() < creep.store.getCapacity()) {
-        creep.say(creep.store.getCapacity());
           var sources = creep.room.find(FIND_STRUCTURES, {
                   filter: (structure) => {
                       return (structure.structureType == STRUCTURE_CONTAINER);
@@ -15,6 +14,7 @@ var roleHarvester2 = {
                       return (structure.structureType == STRUCTURE_STORAGE);
                   }
           });
+          creep.say(sources[0].store.getUsedCapacity());
           if(sources[0].store.getUsedCapacity() > 150)
           {
             if(creep.withdraw(sources[0]) == ERR_NOT_IN_RANGE) {
