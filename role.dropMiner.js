@@ -11,17 +11,23 @@ var roleDropminer = {
             var dropMiners = _.filter(Game.creeps, (creep) => creep.memory.role == 'dropMiner');
             var takenContainers = [];
             for (var i = 0; i < dropMiners.length; i++) {
-              takenContainers.push(dropMiners[i].memory.container);
-              console.log(dropMiners[i].memory.container);
-            }
-            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffaa00'}});
-            }
-
-            if(targets.length > 0 && targets[0].energy < targets[0].energyCapacity) {
-                if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
+              if(dropMiners[i].memory.container != "")
+                takenContainers.push(dropMiners[i].memory.container);
+                console.log(dropMiners[i].memory.container);
+              }
+                if(!takenContainers.includes(targets[0].id)){
+                  creep.memory.container = targets[0].id;
+                  creep.memory.source = sources[0].id;
                 }
+                else if(!takenContainers.includes(targets[1].id)){
+                  creep.memory.container = targets[1].id;
+                  creep.memory.source = sources[1].id;
+                }
+            var currentSource = Game.getObjectById(creep.memory.source);
+            var currentTarget = Game.getObjectById(creep.memory.container);
+
+            if(creep.harvest(currentSource) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(currentTarget, {visualizePathStyle: {stroke: '#ffaa00'}});
             }
 	}
 };
