@@ -17,7 +17,7 @@ var roleDropminer = {
               }
               else {
                 dropMiners[i].memory.container = targets[0].id;
-                dropMiners[i].memory.source = sources[0].id
+                dropMiners[i].memory.currentSource = sources[0].id
               }
             }
           /*  console.log(targets[1]);
@@ -29,7 +29,7 @@ var roleDropminer = {
                   creep.memory.container = targets[1].id;
                   creep.memory.source = sources[1].id;
                 }*/
-            var currentSource = Game.getObjectById(creep.memory.source);
+            var currentSource = Game.getObjectById(creep.memory.currentSource);
             var currentTarget = Game.getObjectById(creep.memory.container);
 
             if(creep.harvest(currentSource) == ERR_NOT_IN_RANGE) {
