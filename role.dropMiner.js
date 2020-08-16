@@ -11,13 +11,13 @@ var roleDropminer = {
             var dropMiners = _.filter(Game.creeps, (creep) => creep.memory.role == 'dropMiner');
             var takenContainers = [];
             for (var i = 0; i < dropMiners.length; i++) {
-              if(dropMiners[i].memory.container != "" && dropMiners[i].memory.currentSource != ""){
-                takenContainers.push(dropMiners[i].memory.container);
-                console.log(dropMiners[i].memory.container);
+              if(dropMiners[i].memory.container2 != "" && dropMiners[i].memory.source != ""){
+                takenContainers.push(dropMiners[i].memory.container2);
+                console.log(dropMiners[i].memory.container2);
               }
               else {
-              /*  dropMiners[i].memory.container = targets[0].id;
-                dropMiners[i].memory.currentSource = sources[0].id;*/
+              /*  dropMiners[i].memory.container2 = targets[0].id;
+                dropMiners[i].memory.source = sources[0].id;*/
               }
             }
            console.log(targets[1]);
@@ -25,18 +25,18 @@ var roleDropminer = {
 if(creep.memory.container == "")
 {
                 if(!takenContainers.includes(targets[0].id)){
-                  creep.memory.container = targets[0].id;
+                  creep.memory.container2 = targets[0].id;
                   creep.memory.source = sources[0].id;
                 }
                 else if(!takenContainers.includes(targets[1].id)){
-                  creep.memory.container = targets[1].id;
+                  creep.memory.container2 = targets[1].id;
                   creep.memory.source = sources[1].id;
                 }
 }
-            var currentSource = Game.getObjectById(creep.memory.currentSource);
-            var currentTarget = Game.getObjectById(creep.memory.container);
+            var currentSource = Game.getObjectById(creep.memory.source);
+            var currentTarget = Game.getObjectById(creep.memory.container2);
 creep.say(creep.harvest(currentSource));
-            if(creep.harvest(currentSource) == ERR_NOT_IN_RANGE || creep.pos != currentTarget.pos) {
+            if(creep.harvest(source) == ERR_NOT_IN_RANGE || creep.pos != currentTarget.pos) {
                 creep.moveTo(currentTarget, {visualizePathStyle: {stroke: '#ffaa00'}});
             }
 	}
