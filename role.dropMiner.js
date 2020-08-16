@@ -9,8 +9,10 @@ var roleDropminer = {
                     }
             });
             var dropMiners = _.filter(Game.creeps, (creep) => creep.memory.role == 'dropMiner');
+            var takenContainers = [];
             for (var i = 0; i < dropMiners.length; i++) {
-              console.log(dropMiners[i]);
+              takenContainers.push(dropMiners[i].memory.container);
+              console.log(dropMiners[i].memory.container);
             }
             if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffaa00'}});
