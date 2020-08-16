@@ -26,7 +26,7 @@ if(creep.memory.container == "")
 {
                 if(!takenContainers.includes(targets[0].id)){
                   creep.memory.container = targets[0].id;
-                  creep.memory.source = sources[1].id;
+                  creep.memory.source = sources[0].id;
                 }
                 else if(!takenContainers.includes(targets[1].id)){
                   creep.memory.container = targets[1].id;
