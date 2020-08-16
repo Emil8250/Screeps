@@ -14,7 +14,7 @@ var roleHarvester2 = {
                       return (structure.structureType == STRUCTURE_STORAGE);
                   }
           });
-          creep.say(sources[0].store.getUsedCapacity());
+          //creep.say(sources[0].store.getUsedCapacity());
           if(sources[0].store.getUsedCapacity() < 150)
           {
             if(creep.withdraw(sources[0]) == ERR_NOT_IN_RANGE) {
