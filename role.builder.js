@@ -27,8 +27,8 @@ var roleBuilder = {
                     }
 
                 });
-                if(creep.withdraw(sources[1], RESOURCE_ENERGY) == -9) {
-                    creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#ffaa00'}});
+                if(creep.withdraw(sources[0], RESOURCE_ENERGY) == -9) {
+                    creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
                 }
 	    }
 	}
