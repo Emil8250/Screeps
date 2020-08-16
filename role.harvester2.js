@@ -2,8 +2,9 @@ var roleHarvester2 = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
-      creep.say(creep.store.getUsedCapacity());
+
 	    if(creep.store.getUsedCapacity() < creep.store.getCapacity()) {
+        creep.say(creep.store.getCapacity());
           var sources = creep.room.find(FIND_STRUCTURES, {
                   filter: (structure) => {
                       return (structure.structureType == STRUCTURE_CONTAINER);
