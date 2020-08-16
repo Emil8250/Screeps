@@ -15,7 +15,7 @@ var roleHarvester2 = {
                   }
           });
           //creep.say(sources[0].store.getUsedCapacity());
-          if(sources[0].store.getUsedCapacity() < 150)
+          if(sources[0].store.getUsedCapacity() > 150)
           {
             creep.say(creep.withdraw(sources[0]));
             if(creep.withdraw(sources[0]) == ERR_NOT_IN_RANGE) {
