@@ -37,7 +37,7 @@ var roleRoadSquad = {
             if(creep.store.getUsedCapacity() <= 0)
             {
                  if(creep.withdraw(currentContainer, RESOURCE_ENERGY) == -9) {
-                    creep.moveTo(currentRoad, {visualizePathStyle: {stroke: '#ffaa00'}});
+                    creep.moveTo(currentContainer, {visualizePathStyle: {stroke: '#ffaa00'}});
                 }
             }
             else
