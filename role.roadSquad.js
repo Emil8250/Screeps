@@ -11,7 +11,7 @@ var roleRoadSquad = {
                         return (structure.structureType == STRUCTURE_CONTAINER);
                     }
         });
-        var currentContainer = containers[1];
+        var currentContainer = containers[0];
         var lowRoad = _.min(targets, function(Road) { return Road.hits; });
         if(!creep.memory.road){
             creep.memory.road = lowRoad.id;
