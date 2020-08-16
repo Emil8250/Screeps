@@ -31,12 +31,12 @@ var roleUpgrader2 = {
           });
           if(sources[0].store.getUsedCapacity() > 150)
           {
-            if(creep.withdraw(sources[0]) == ERR_NOT_IN_RANGE) {
+            if(creep.withdraw(sources[0],RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
           }
           else {
-            if(creep.withdraw(backup[0]) == ERR_NOT_IN_RANGE) {
+            if(creep.withdraw(backup[0],RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(backup[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
           }
