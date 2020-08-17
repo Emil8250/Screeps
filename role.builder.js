@@ -32,16 +32,9 @@ var roleBuilder = {
                       		return (structure.structureType == STRUCTURE_STORAGE);
                   	}
           	});
-		if(sources[0].store.store.getUsedCapacity() > 150){
 			if(creep.withdraw(sources[0], RESOURCE_ENERGY) == -9) {
 			    creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
 			}
-		}
-		else{
-			if(creep.withdraw(backup[0], RESOURCE_ENERGY) == -9) {
-			    creep.moveTo(backup[0], {visualizePathStyle: {stroke: '#ffaa00'}});
-			}
-		}
 	    }
 	}
 };
