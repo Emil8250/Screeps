@@ -22,7 +22,7 @@ var roleHauler = {
             }
         }
 	creep.say(creep.store.getUsedCapacity());
-        if(creep.store.getUsedCapacity > 0)
+        if(creep.store.getUsedCapacity() > 0)
         {
             if(creep.transfer(currentStorage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
                 creep.moveTo(currentStorage);
