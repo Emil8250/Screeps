@@ -180,7 +180,7 @@ module.exports.loop = function () {
         currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE], newName,
             {memory: {role: 'hauler'}});
     }
-    else if(repairRampart.length < 1){
+    else if(rampartRepair.length < 1){
       var newName = 'repairRampart' + Game.time;
       console.log('Spawning new repairRampart: ' + newName);
       currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,MOVE,MOVE], newName,
