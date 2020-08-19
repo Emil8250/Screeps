@@ -10,6 +10,7 @@ var buildRoadToController = require('build.roadToController');
 var roleRoadSquad = require('role.roadSquad');
 var roleSupplyTower = require('role.supplyTower');
 var roleHauler = require('role.hauler');
+var roleRampartRepair = require('role.rampartRepair');
 
 module.exports.loop = function () {
     //var containerFlag = Game.spawns.Spawn1.room.find(FIND_FLAGS)[1].pos
@@ -91,6 +92,8 @@ module.exports.loop = function () {
     console.log('supplyTower: ' + supplyTower.length);
     var hauler =  _.filter(Game.creeps, (creep) => creep.memory.role == 'hauler');
     console.log('Hauler: ' + hauler.length);
+    var rampartRepair = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairRampart');
+    console.log('Ramparts: ' + rampartRepair.length);
 
     var spawnHarvester = false;
     var spawnOldHarvester = false;
@@ -177,6 +180,15 @@ module.exports.loop = function () {
         currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE], newName,
             {memory: {role: 'hauler'}});
     }
+    else if(repairRampart.length < 1){
+      var newName = 'repairRampart' + Game.time;
+      console.log('Spawning new repairRampart: ' + newName);
+      currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,MOVE,MOVE], newName,
+          {memory: {
+              role: 'repairRampart',
+              currentRampart: 0
+          }});
+    }
     else if(spawnSupplyTower) {
         var newName = 'SupplyTower' + Game.time;
         console.log('Spawning new SupplyTower: ' + newName);
@@ -241,6 +253,9 @@ module.exports.loop = function () {
               break;
           case 'hauler':
             roleHauler.run(creep);
+            break;
+          case 'repairRampart':
+            roleRampartRepair.run(creep);
             break;
           default:
             console.log('creep role: ' + creep.memory.role);
