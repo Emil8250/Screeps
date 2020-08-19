@@ -28,7 +28,6 @@ module.exports.loop = function () {
     for (var i = 0; i < gameSpawns.length; i++) {
        var currentSpawn = Game.spawns[gameSpawns[i]];
        var currentRoom = currentSpawn.room;
-       console.log('hej?');
                var hostiles = currentRoom.find(FIND_HOSTILE_CREEPS);
     if(hostiles.length > 0) {
         var username = hostiles[0].owner.username;
@@ -186,7 +185,8 @@ module.exports.loop = function () {
       currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,MOVE,MOVE], newName,
           {memory: {
               role: 'repairRampart',
-              currentRampart: 0
+              currentRampart: 0,
+              rampart: ''
           }});
     }
     else if(spawnSupplyTower) {
