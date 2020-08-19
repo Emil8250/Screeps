@@ -13,15 +13,12 @@ var roleDropminer = {
             for (var i = 0; i < dropMiners.length; i++) {
               if(dropMiners[i].memory.container2 != "" && dropMiners[i].memory.source != ""){
                 takenContainers.push(dropMiners[i].memory.container2);
-                console.log(dropMiners[i].memory.container2);
               }
               else {
               /*  dropMiners[i].memory.container2 = targets[0].id;
                 dropMiners[i].memory.source = sources[0].id;*/
               }
             }
-           console.log(targets[1]);
-console.log('container2:' + creep.memory.container2);
 if(creep.memory.container2 == "" || !creep.memory.container2 )
 {
                 if(!takenContainers.includes(targets[0].id)){
