@@ -185,7 +185,7 @@ module.exports.loop = function () {
       currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,MOVE,MOVE], newName,
           {memory: {
               role: 'repairRampart',
-              currentRampart: 0,
+              currentRampart: 0, 
               rampart: ''
           }});
     }
