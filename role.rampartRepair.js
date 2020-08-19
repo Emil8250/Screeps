@@ -13,7 +13,7 @@ var roleRampartRepair = {
         });
 
         var lowRampart = _.min(targets, function(rampart) { return rampart.hits; });
-        var currentStorage = _.max()(sources, function(source) { return source.store.getUsedCapacity(RESOURCE_ENERGY); });
+        var currentStorage = _.max(sources, function(source) { return source.store.getUsedCapacity(RESOURCE_ENERGY); });
 
         if(!creep.memory.rampart){
             creep.memory.rampart = lowRampart.id;
