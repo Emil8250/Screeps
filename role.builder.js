@@ -14,7 +14,7 @@ var roleBuilder = {
 
 	    if(creep.memory.building) {
 	        var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
-
+          creep.say(creep.build(targets[0]));
             if(targets.length) {
               creep.say(creep.build(targets[0]));
                 if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
