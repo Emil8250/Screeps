@@ -186,7 +186,7 @@ module.exports.loop = function () {
     else if(rampartRepair.length < 1){
       var newName = 'repairRampart' + Game.time;
       console.log('Spawning new repairRampart: ' + newName);
-      currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,MOVE,MOVE], newName,
+      currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], newName,
           {memory: {
               role: 'repairRampart',
               currentRampart: 0, 
