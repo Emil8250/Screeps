@@ -24,7 +24,7 @@ var roleRampartRepair = {
             })*/
             var currentRampart = Game.getObjectById(creep.memory.rampart);
 
-            if(creep.memory.currentRampart > 1180)
+            if(creep.memory.currentRamparthits > (lowRampart.hits + 3000))
             {
               currentRampart = lowRampart;
               creep.memory.rampart = currentRampart.id;
