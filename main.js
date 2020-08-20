@@ -42,6 +42,10 @@ module.exports.loop = function () {
         if(flags[i].name == 'road')
             buildRoadToController.run();
     }
+    var ramparts = currentRoom.find(
+        FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_RAMPART}});
+    var rampartSum = 0;
+    ramparts.forEach(rampart => rampartSum += rampart.hits);        
     //var containerFlag = Game.spawns.Spawn1.room.find(FIND_FLAGS)[1].pos
     var sites = false;
     console.log("ConstructionSites: ");
@@ -276,6 +280,7 @@ module.exports.loop = function () {
         Miners: dropMiner.length,
         Upgraders: upgraders2.length,
         roadSquad: roadSquad.length,
+        rampartSum: rampartSum,
     };
     }
 }
