@@ -22,9 +22,11 @@ var roleRampartRepair = {
            /* var currentRoad = targets.filter(road => {
                 return road.id === creep.memory.road;
             })*/
-console.log((lowRampart.hits + 3000))
             var currentRampart = Game.getObjectById(creep.memory.rampart);
-            if(creep.memory.currentRamparthits > (lowRampart.hits + 3000))
+
+console.log((lowRampart.hits + 3000))
+
+            if(currentRampart.hits > (lowRampart.hits + 3000))
             {
               currentRampart = lowRampart;
               creep.memory.rampart = currentRampart.id;
