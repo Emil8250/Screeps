@@ -33,9 +33,18 @@ var roleSupplyTower = {
                         return (structure.structureType == STRUCTURE_TOWER);
                     }
             });
-                if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
-                }
+		if(targets[0].store.getFreeCapacity() != 0)
+		{
+			if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+			    creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
+			}
+		}
+		else
+		{
+			if(creep.transfer(targets[targets.length - 1], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+			    creep.moveTo(targets[targets.length - 1], {visualizePathStyle: {stroke: '#ffffff'}});
+			}			
+		}
         }
 	}
 };
