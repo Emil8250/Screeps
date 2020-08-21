@@ -163,10 +163,10 @@ module.exports.loop = function () {
         currentSpawn.spawnCreep([WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE], newName,
             {memory: {role: 'upgrader2'}});
     }
-    else if(builders.length < 1 && sites) {
+    else if(builders.length < 2 && sites) {
         var newName = 'Builder' + Game.time;
         console.log('Spawning new builder: ' + newName);
-        currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,CARRY,WORK,WORK,MOVE,MOVE], newName,
+        currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,CARRY,WORK,WORK,WORK,MOVE,MOVE,MOVE], newName,
             {memory: {role: 'builder'}});
     }
     else if(roadSquad.length < 1)
