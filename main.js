@@ -166,7 +166,7 @@ module.exports.loop = function () {
     else if(builders.length < 1 && sites) {
         var newName = 'Builder' + Game.time;
         console.log('Spawning new builder: ' + newName);
-        currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,WORK,MOVE], newName,
+        currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,CARRY,WORK,WORK,MOVE,MOVE], newName,
             {memory: {role: 'builder'}});
     }
     else if(roadSquad.length < 1)
