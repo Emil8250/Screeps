@@ -146,7 +146,7 @@ module.exports.loop = function () {
     else if(spawnHarvester) {
         var newName = 'Harvester' + Game.time;
         console.log('Spawning new harvester: ' + newName);
-        currentSpawn.spawnCreep([WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE], newName,
+        currentSpawn.spawnCreep([WORK,WORK,CARRY,CARRY,MOVE,MOVE], newName,
             {memory: {role: 'harvester2'}});
     }
 
@@ -199,10 +199,10 @@ module.exports.loop = function () {
         currentSpawn.spawnCreep([WORK,CARRY,CARRY,WORK,MOVE,MOVE], newName,
             {memory: {role: 'supplyTower'}});
     }
-    else if(currentRoom.energyAvailable >= 1100 && upgraders2.length < 11) {
+    else if(currentRoom.energyAvailable >= 900 && upgraders2.length < 11) {
         var newName = 'Upgrader2' + Game.time;
         console.log('Spawning new upgrader: ' + newName);
-        currentSpawn.spawnCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE], newName,
+        currentSpawn.spawnCreep([WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE], newName,
             {memory: {role: 'upgrader2'}});
     }
    /* else if(Game.spawns.Spawn1.energy >= 200) {
