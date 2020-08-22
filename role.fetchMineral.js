@@ -16,13 +16,13 @@ var roleFetchMineral = {
         })[2];
 
         if(creep.store.getFreeCapacity() == 0){
-            if(creep.transfer(currentStorage, RESOURCE_MINERAL) == ERR_NOT_IN_RANGE){
+            if(creep.transfer(currentStorage, RESOURCE_HYDROGEN) == ERR_NOT_IN_RANGE){
                 creep.moveTo(currentStorage);
             }
         }
         else if(currentContainer.store.getUsedCapacity != 0)
         {
-          if(creep.withdraw(currentContainer, RESOURCE_MINERAL) == ERR_NOT_IN_RANGE){
+          if(creep.withdraw(currentContainer, RESOURCE_HYDROGEN) == ERR_NOT_IN_RANGE){
               creep.moveTo(currentContainer);
           }
         }
