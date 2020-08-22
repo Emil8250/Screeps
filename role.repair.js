@@ -30,9 +30,18 @@ var roleRoadSquad = {
             }
             if(creep.store.getUsedCapacity() <= 0)
             {
+if(currentContainer.id != targets[2].id){
                  if(creep.withdraw(currentContainer, RESOURCE_ENERGY) == -9) {
                     creep.moveTo(currentContainer, {visualizePathStyle: {stroke: '#ffaa00'}});
                 }
+}
+else{
+
+if(creep.withdraw(targets[1], RESOURCE_ENERGY) == -9) {
+                    creep.moveTo(targets[1], {visualizePathStyle: {stroke: '#ffaa00'}});
+                }
+
+}
             }
             else
             {
