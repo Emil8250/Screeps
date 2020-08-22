@@ -60,6 +60,7 @@ var roleSupplyTower = {
         }
         }
         else {
+          creep.say("hej");
           if(creep.store.getUsedCapacity() != 0){
             if(creep.transfer(terminal[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
       			    creep.moveTo(terminal[0], {visualizePathStyle: {stroke: '#ffffff'}});
