@@ -38,7 +38,7 @@ if(creep.memory.container2 == "" || !creep.memory.container2 )
                 }
 
                 else if(!takenContainers.includes(targets[2].id)){
-                  creep.memory.container2 = targets[1].id;
+                  creep.memory.container2 = targets[2].id;
                   creep.memory.source = extractors[0].id;
                 }
 
