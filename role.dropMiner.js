@@ -8,6 +8,13 @@ var roleDropminer = {
                         return (structure.structureType == STRUCTURE_CONTAINER);
                     }
             });
+
+            var extractors = creep.room.find(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                        return (structure.structureType == STRUCTURE_EXTRACTOR);
+                    }
+            });
+
             var dropMiners = _.filter(Game.creeps, (creep) => creep.memory.role == 'dropMiner');
             var takenContainers = [];
             for (var i = 0; i < dropMiners.length; i++) {
