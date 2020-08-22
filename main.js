@@ -37,6 +37,10 @@ module.exports.loop = function () {
             FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_TOWER}});
         towers.forEach(tower => tower.attack(hostiles[0]));
     }
+
+    if(Game.cpu.bucket > 5000)
+      Game.cpu.generatePixel();
+
     //
      var flags = currentRoom.find(FIND_FLAGS)
     for (var i = 0; i < flags.length; i++) {
