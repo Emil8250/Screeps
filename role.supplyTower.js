@@ -2,16 +2,28 @@ var roleSupplyTower = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
-
+      var flags = currentRoom.find(FIND_FLAGS)
+      var flagName = "";
+     for (var i = 0; i < flags.length; i++) {
+         if(flags[i].name.includes("market"))
+             flagName = flags[i].name;
+     }
+     var backup = creep.room.find(FIND_STRUCTURES, {
+             filter: (structure) => {
+                 return (structure.structureType == STRUCTURE_STORAGE);
+             }
+     });
+     var terminal = creep.room.find(FIND_STRUCTURES, {
+             filter: (structure) => {
+                 return (structure.structureType == STRUCTURE_TERMINAL);
+             }
+     });
+     if(flagName != "")
+     {
 	    if(creep.store.getUsedCapacity() < creep.store.getCapacity()) {
           var sources = creep.room.find(FIND_STRUCTURES, {
                   filter: (structure) => {
                       return (structure.structureType == STRUCTURE_CONTAINER);
-                  }
-          });
-          var backup = creep.room.find(FIND_STRUCTURES, {
-                  filter: (structure) => {
-                      return (structure.structureType == STRUCTURE_STORAGE);
                   }
           });
           //creep.say(sources[0].store.getUsedCapacity());
@@ -43,8 +55,21 @@ var roleSupplyTower = {
 		{
 			if(creep.transfer(targets[targets.length - 1], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
 			    creep.moveTo(targets[targets.length - 1], {visualizePathStyle: {stroke: '#ffffff'}});
-			}			
+			}
 		}
+        }
+        }
+        else {
+          if(creep.getUsedCapacity() != 0){
+            if(creep.transfer(terminal[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+      			    creep.moveTo(terminal[0], {visualizePathStyle: {stroke: '#ffffff'}});
+      			}
+          }
+          else{
+            if(creep.withdraw(backup[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+      			    creep.moveTo(backup[0], {visualizePathStyle: {stroke: '#ffffff'}});
+      			}
+          }
         }
 	}
 };
