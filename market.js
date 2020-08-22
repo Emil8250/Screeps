@@ -5,7 +5,7 @@ var market = {
       var orders = _.filter(test, function(order) {return order.resourceType == PIXEL && order.type == ORDER_BUY});
       console.log('best price & fee: ' + _.max(orders, function(order){return order.price}).price);
       var roomName = _.max(orders, function(order){return order.price}).roomName;
-      var fee = Game.market.calcTransactionCost(1, roomName, Game.spawns.Spawn1.room);
+      var fee = Game.market.calcTransactionCost(1, roomName, Game.spawns.Spawn1.room.name);
       console.log(fee);
     }
 };
