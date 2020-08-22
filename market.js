@@ -6,8 +6,8 @@ var market = {
       console.log('best price & fee: ' + _.max(orders, function(order){return order.price}).price);
       var roomName = _.max(orders, function(order){return order.price});
       console.log('best price & fee: ' + _.max(orders, function(order){return order.roomName}).roomName);
-      var fee = Game.market.calcTransactionCost(1, roomName.roomName, 'W25N3');
-      console.log(fee);
+  //    var fee = Game.market.calcTransactionCost(1, roomName.roomName, 'W25N3');
+  //    console.log(fee);
     }
 };
 module.exports = market;
