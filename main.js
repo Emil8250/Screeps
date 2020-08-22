@@ -12,6 +12,7 @@ var roleSupplyTower = require('role.supplyTower');
 var roleHauler = require('role.hauler');
 var roleRampartRepair = require('role.rampartRepair');
 var roleFetchMineral = require('role.fetchMineral');
+var market = require('market');
 
 module.exports.loop = function () {
     //var containerFlag = Game.spawns.Spawn1.room.find(FIND_FLAGS)[1].pos
@@ -46,6 +47,12 @@ module.exports.loop = function () {
     for (var i = 0; i < flags.length; i++) {
         if(flags[i].name == 'road')
             buildRoadToController.run();
+        else if(flags[i].name == 'pixel')
+        {
+          market.run();
+          console.log("FOUND");
+        }
+
     }
     var ramparts = currentRoom.find(
         FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_RAMPART}});
