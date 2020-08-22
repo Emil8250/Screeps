@@ -11,6 +11,7 @@ var roleRoadSquad = require('role.roadSquad');
 var roleSupplyTower = require('role.supplyTower');
 var roleHauler = require('role.hauler');
 var roleRampartRepair = require('role.rampartRepair');
+var roleFetchMineral = require('role.fetchMineral');
 
 module.exports.loop = function () {
     //var containerFlag = Game.spawns.Spawn1.room.find(FIND_FLAGS)[1].pos
@@ -45,7 +46,7 @@ module.exports.loop = function () {
     var ramparts = currentRoom.find(
         FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_RAMPART}});
     var rampartSum = 0;
-    ramparts.forEach(rampart => rampartSum += rampart.hits);        
+    ramparts.forEach(rampart => rampartSum += rampart.hits);
     //var containerFlag = Game.spawns.Spawn1.room.find(FIND_FLAGS)[1].pos
     var sites = false;
     console.log("ConstructionSites: ");
@@ -97,7 +98,8 @@ module.exports.loop = function () {
     console.log('Hauler: ' + hauler.length);
     var rampartRepair = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairRampart');
     console.log('Ramparts: ' + rampartRepair.length);
-
+    var fetchers = _.filter(Game.creeps, (creep) => creep.memory.role == 'fetchMineral');
+    console.log('fetchers: ' + fetchers.length);
     var spawnHarvester = false;
     var spawnOldHarvester = false;
     var spawnMiner = false;
@@ -169,6 +171,13 @@ module.exports.loop = function () {
         currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,CARRY,WORK,WORK,WORK,MOVE,MOVE,MOVE], newName,
             {memory: {role: 'builder'}});
     }
+    else if (fetchers.length < 1)
+    {
+      var newName = 'fetchMineral' + Game.time;
+      console.log('Spawning new fetchMineral: ' + newName);
+      currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], newName,
+          {memory: {role: 'fetchMineral'}});
+    }
     else if(roadSquad.length < 1)
     {
                 var newName = 'roadSquad' + Game.time;
@@ -189,7 +198,7 @@ module.exports.loop = function () {
       currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], newName,
           {memory: {
               role: 'repairRampart',
-              currentRampart: 0, 
+              currentRampart: 0,
               rampart: ''
           }});
     }
@@ -260,6 +269,9 @@ module.exports.loop = function () {
             break;
           case 'repairRampart':
             roleRampartRepair.run(creep);
+            break;
+          case 'fetchMineral':
+            roleFetchMineral.run(creep);
             break;
           default:
             console.log('creep role: ' + creep.memory.role);
