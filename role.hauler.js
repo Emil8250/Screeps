@@ -9,6 +9,14 @@ var roleHauler = {
             }
     
         })[0];
+
+        var currentContainer = creep.room.find(FIND_STRUCTURES, {
+            filter: (structure) => {
+                return (structure.structureType == STRUCTURE_CONTAINER);
+            }
+    
+        })[2];
+
         if(droppedResources.length > 0){
             creep.pickup(droppedResources[0]);
             if(creep.pickup(droppedResources[0] == ERR_NOT_IN_RANGE) && creep.store.getFreeCapacity() != 0)
