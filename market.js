@@ -7,5 +7,6 @@ var market = {
       var roomName = _.max(orders, function(order){return order.price}).roomName;
       var fee = Game.market.calcTransactionCost(1, roomName, Game.spawns.Spawn1.room);
       console.log(fee);
+    }
 };
 module.exports = market;
