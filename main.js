@@ -113,12 +113,12 @@ module.exports.loop = function () {
     }
     if(harvesters2.length < 2)
         spawnHarvester = true;
-    if(dropMiner.length == 2){
+    if(dropMiner.length == 3){
        if(dropMiner[0].ticksToLive < 10 || dropMiner[1].ticksToLive < 10 ){
            spawnMiner = true;
        }
     }
-    if(dropMiner.length < 2)
+    if(dropMiner.length < 3)
         spawnMiner = true;
 
     if(Object.keys(Game.creeps).length == 0)
