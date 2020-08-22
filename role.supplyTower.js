@@ -2,7 +2,7 @@ var roleSupplyTower = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
-      var flags = currentRoom.find(FIND_FLAGS)
+      var flags = creep.room.find(FIND_FLAGS)
       var flagName = "";
      for (var i = 0; i < flags.length; i++) {
          if(flags[i].name.includes("market"))
