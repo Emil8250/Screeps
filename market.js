@@ -9,6 +9,7 @@ var market = {
       console.log(maxOrder.amount);
       if(maxOrder.price > 745){
         console.log(Game.resources['PIXEL']);
+        Game.market.deal(maxOrder.id, 45);
       }
     }
 };
