@@ -9,7 +9,7 @@ var market = {
           console.log('best price & fee: ' + _.max(orders, function(order){return order.price}).price);
           console.log(maxOrder.id);
           console.log(maxOrder.amount);
-          var pixels = Game.resource['pixel'];
+          var pixels = Game.resources['pixel'];
           if(maxOrder.price > 739 && pixels > 0){
             if(maxOrder.amount > pixels){
                 Game.market.deal(maxOrder.id, pixels);
@@ -18,7 +18,7 @@ var market = {
                 Game.market.deal(maxOrder.id, maxOrder.amount);
             }
           }
-          if(maxOrder.amount > Game.resource['pixel'])
+          if(maxOrder.amount > pixels)
             Memory.nextMarketCheck = Game.time + 1200;
       }
     }
