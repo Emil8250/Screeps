@@ -12,7 +12,8 @@ var market = {
           if(maxOrder.price > 739 && Game.resources['pixel'] > 0){
             Game.market.deal(maxOrder.id, Game.resources['pixel']);
           }
-          Memory.nextMarketCheck = Game.time + 1200;
+          if(maxOrder.amount > Game.resource['pixel'])
+            Memory.nextMarketCheck = Game.time + 1200;
       }
     }
 };
