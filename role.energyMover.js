@@ -15,10 +15,10 @@ var roleEnergyMover = {
         }
       }), function(container){return container.store.getUsedCapacity(RESOURCE_ENERGY)});
 
-      var currentContainer = Game.getObjectById(creep.memory.container);
+      if(creep.memory.container == "")
+        creep.memory.container = container.id;
 
-      if(currentContainer == "")
-        currentContainer = container.id;
+      var currentContainer = Game.getObjectById(creep.memory.container);
 
       if(creep.store.getUsedCapacity() <= 0)
       {
