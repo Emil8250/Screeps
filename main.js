@@ -290,6 +290,9 @@ module.exports.loop = function () {
           case 'fetchMineral':
             roleFetchMineral.run(creep);
             break;
+          case 'energyMover':
+            roleEnergyMover.run(creep);
+            break;
           default:
             console.log('creep role: ' + creep.memory.role);
             break;
