@@ -7,9 +7,10 @@ var market = {
       console.log('best price & fee: ' + _.max(orders, function(order){return order.price}).price);
       console.log(maxOrder.id);
       console.log(maxOrder.amount);
-      if(maxOrder.price > 745){
+      if(maxOrder.price > 745 && Game.resources['pixel'] > 0){
         console.log(Game.resources['PIXEL']);
-        Game.market.deal(maxOrder.id, 45);
+        Game.resources['pixel']
+       // Game.market.deal(maxOrder.id, 45);
       }
     }
 };
