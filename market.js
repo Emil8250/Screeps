@@ -8,9 +8,7 @@ var market = {
       console.log(maxOrder.id);
       console.log(maxOrder.amount);
       if(maxOrder.price > 745 && Game.resources['pixel'] > 0){
-        console.log(Game.resources['PIXEL']);
-        Game.resources['pixel']
-       // Game.market.deal(maxOrder.id, 45);
+        Game.market.deal(maxOrder.id, Game.resources['pixel']);
       }
     }
 };
