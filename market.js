@@ -1,7 +1,7 @@
 var market = {
 
     run: function() {
-      if(Memory.nextMarketCheck > Game.time)
+      if(Memory.nextMarketCheck < Game.time)
       {
           var test = Game.market.getAllOrders();
           var orders = _.filter(test, function(order) {return order.resourceType == PIXEL && order.type == ORDER_BUY});
