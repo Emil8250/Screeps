@@ -13,6 +13,7 @@ var roleHauler = require('role.hauler');
 var roleRampartRepair = require('role.rampartRepair');
 var roleFetchMineral = require('role.fetchMineral');
 var market = require('market');
+var roleEnergyMover = require('role.energyMover');
 
 module.exports.loop = function () {
     //var containerFlag = Game.spawns.Spawn1.room.find(FIND_FLAGS)[1].pos
@@ -92,25 +93,21 @@ module.exports.loop = function () {
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
     console.log('Builders: ' + builders.length);
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-    console.log('Upgraders: ' + upgraders.length);
     var upgraders2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader2');
     console.log('Upgraders2: ' + upgraders2.length);
     var roadUpgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'roadBuilder');
-    console.log('RoadUpgraders: ' + roadUpgraders.length);
     var dropMiner =_.filter(Game.creeps, (creep) => creep.memory.role == 'dropMiner');
     console.log('drop: ' + dropMiner.length);
     var conRepair = _.filter(Game.creeps, (creep) => creep.memory.role == 'repair');
-    console.log('repairs: ' + conRepair.length);
     var roadSquad = _.filter(Game.creeps, (creep) => creep.memory.role == 'roadSquad');
-    console.log('roadSquad: ' + roadSquad.length);
     var supplyTower = _.filter(Game.creeps, (creep) => creep.memory.role == 'supplyTower');
     console.log('supplyTower: ' + supplyTower.length);
     var hauler =  _.filter(Game.creeps, (creep) => creep.memory.role == 'hauler');
     console.log('Hauler: ' + hauler.length);
     var rampartRepair = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairRampart');
-    console.log('Ramparts: ' + rampartRepair.length);
     var fetchers = _.filter(Game.creeps, (creep) => creep.memory.role == 'fetchMineral');
-    console.log('fetchers: ' + fetchers.length);
+    var energyMover = _.filter(Game.creeps, (creep) => creep.memory.role == 'energyMover');
+
     var spawnHarvester = false;
     var spawnOldHarvester = false;
     var spawnMiner = false;
@@ -181,6 +178,15 @@ module.exports.loop = function () {
         console.log('Spawning new builder: ' + newName);
         currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,CARRY,WORK,WORK,WORK,MOVE,MOVE,MOVE], newName,
             {memory: {role: 'builder'}});
+    }
+    else if (energyMover.length < 1){
+      var newName = 'energyMover' + Game.time;
+      console.log('Spawning new energyMover: ' + newName);
+      currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], newName,
+          {memory: {
+              role: 'energyMover',
+              container: ''
+          }});
     }
     else if (fetchers.length < 1)
     {

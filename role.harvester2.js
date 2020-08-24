@@ -15,17 +15,17 @@ var roleHarvester2 = {
                   }
           });
           //creep.say(sources[0].store.getUsedCapacity());
-          if(sources[1].store.getUsedCapacity() > 150)
+        /*  if(sources[1].store.getUsedCapacity() > 150)
           {
             if(creep.withdraw(sources[1], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
           }
-          else {
+          else {*/
             if(creep.withdraw(backup[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(backup[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
-          }
+          //}
         }
         else {
             var targets = creep.room.find(FIND_STRUCTURES, {
