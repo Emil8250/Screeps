@@ -182,7 +182,7 @@ module.exports.loop = function () {
     else if (energyMover.length < 1){
       var newName = 'energyMover' + Game.time;
       console.log('Spawning new energyMover: ' + newName);
-      currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], newName,
+      currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName,
           {memory: {
               role: 'energyMover',
               container: ''
