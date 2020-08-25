@@ -27,6 +27,11 @@ var roleHauler = {
                 if(creep.transfer(currentStorage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
                     creep.moveTo(currentStorage);
                 }
+
+                if(creep.transfer(currentStorage, RESOURCE_HYDROGEN) == ERR_NOT_IN_RANGE){
+                    creep.moveTo(currentStorage);
+                }
+
             }
         }
 	creep.say(creep.store.getUsedCapacity());
@@ -35,6 +40,11 @@ var roleHauler = {
             if(creep.transfer(currentStorage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
                 creep.moveTo(currentStorage);
             }
+
+                if(creep.transfer(currentStorage, RESOURCE_HYDROGEN) == ERR_NOT_IN_RANGE){
+                    creep.moveTo(currentStorage);
+                }
+
         }
 	}
 };
