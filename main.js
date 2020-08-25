@@ -182,7 +182,7 @@ module.exports.loop = function () {
     else if (energyMover.length < 1){
       var newName = 'energyMover' + Game.time;
       console.log('Spawning new energyMover: ' + newName);
-      currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName,
+      currentSpawn.spawnCreep([WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName,
           {memory: {
               role: 'energyMover',
               container: ''
@@ -228,7 +228,7 @@ module.exports.loop = function () {
     else if(currentRoom.energyAvailable >= 900 && upgraders2.length < 11) {
         var newName = 'Upgrader2' + Game.time;
         console.log('Spawning new upgrader: ' + newName);
-        currentSpawn.spawnCreep([WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], newName,
+        currentSpawn.spawnCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], newName,
             {memory: {role: 'upgrader2'}});
     }
    /* else if(Game.spawns.Spawn1.energy >= 200) {
