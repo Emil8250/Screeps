@@ -123,7 +123,7 @@ module.exports.loop = function () {
             }
     });
     if(supplyTower.length < 1 && towers.length > 0){
-        if(towers[0].energyAvailable != towers[0].energyCapacity)
+        if(towers[0].store.energyAvailable != towers[0].store.energyCapacity)
             spawnSupplyTower = true;
     }
     if(harvesters2.length < 2)
