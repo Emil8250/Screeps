@@ -230,7 +230,7 @@ module.exports.loop = function () {
         currentSpawn.spawnCreep([WORK,CARRY,CARRY,WORK,MOVE,MOVE], newName,
             {memory: {role: 'supplyTower'}});
     }
-    else if(currentRoom.energyAvailable >= 900 && upgraders2.length < 7) {
+    else if(currentRoom.energyAvailable >= 900 && upgraders2.length < 6) {
         var newName = 'Upgrader2' + Game.time;
         console.log('Spawning new upgrader: ' + newName);
         currentSpawn.spawnCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], newName,
