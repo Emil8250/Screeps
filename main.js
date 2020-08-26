@@ -39,7 +39,7 @@ module.exports.loop = function () {
             FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_TOWER}});
         towers.forEach(tower => tower.attack(hostiles[0]));
     }
-      var currentStorage = _.max(creep.room.find(FIND_STRUCTURES, {
+      var currentStorage = _.max(currentRoom.find(FIND_STRUCTURES, {
         filter: (structure) => {
             return (structure.structureType == STRUCTURE_STORAGE);
         }
