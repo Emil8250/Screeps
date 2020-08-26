@@ -39,7 +39,12 @@ module.exports.loop = function () {
             FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_TOWER}});
         towers.forEach(tower => tower.attack(hostiles[0]));
     }
-
+      var currentStorage = _.max(creep.room.find(FIND_STRUCTURES, {
+        filter: (structure) => {
+            return (structure.structureType == STRUCTURE_STORAGE);
+        }
+      }), function(storage){return storage.store.getUsedCapacity(RESOURCE_ENERGY)});
+        
     if(Game.cpu.bucket > 5000)
       Game.cpu.generatePixel();
 
@@ -313,7 +318,7 @@ module.exports.loop = function () {
         Upgraders: upgraders2.length,
         roadSquad: roadSquad.length,
         rampartSum: rampartSum,
-        totalEnergy: currentRoom.energyAvailable,
+        totalEnergy2: currentStorage.store.getUsedCapacity(RESOURCE_ENERGY),
     };
     }
 }
