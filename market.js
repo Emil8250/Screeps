@@ -10,7 +10,7 @@ var market = {
           console.log(maxOrder.id);
           console.log(maxOrder.amount);
           var pixels = Game.resources['pixel'];
-          if(maxOrder.price > 699 && pixels > 0){
+          if(maxOrder.price > 669 && pixels > 0){
             if(maxOrder.amount > pixels){
                 Game.market.deal(maxOrder.id, pixels);
             }
